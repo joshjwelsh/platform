@@ -1,6 +1,8 @@
 package salt
 
-func Add(x int, y int) int{
+import "fmt"
 
+func Add(x int, y int) int {
+	fmt.Println("Hello World")
 	return x + y
 }
