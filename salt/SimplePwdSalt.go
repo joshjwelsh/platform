@@ -7,19 +7,20 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func GetPwd() []byte {
-	// Prompt the user to enter a password
-	fmt.Println("Enter a password")
-	// We will use this to store the users input
+func GetPwd(prompt string) []byte {
 	var pwd string
-	// Read the users input
+
+	if prompt != "f" {
+		fmt.Println(prompt)
+
+	}
+	fmt.Println()
 	_, err := fmt.Scan(&pwd)
 	if err != nil {
 		log.Println(err)
 	}
-	// Return the users input as a byte slice which will save us
-	// from having to do this conversion later on
 	return []byte(pwd)
+
 }
 
 func HashAndSalt(pwd []byte) string {
